@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LiteraKlik - Literasi harian seru untuk pelajar Indonesia" />
+  <title>LiteraKlik - Literasi Harian Seru</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+</head>
+<body>
+
+  <!-- SIDEBAR (MENU SAMPING) -->
+  <aside class="sidebar">
+    <a href="#" class="logo" data-page="home">
+      <span class="logo-icon">📚</span>
+      <span class="logo-text">LiteraKlik</span>
+    </a>
+    
+    <nav class="nav-menu">
+      <button class="nav-btn active" data-page="home">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Beranda</span>
+      </button>
+      <button class="nav-btn" data-page="leaderboard">
+        <span class="nav-icon">🏆</span>
+        <span class="nav-label">Peringkat</span>
+      </button>
+      <button class="nav-btn" data-page="profile">
+        <span class="nav-icon">👤</span>
+        <span class="nav-label">Profil</span>
+      </button>
+    </nav>
+  </aside>
+
+  <!-- MAIN WRAPPER (KONTEN UTAMA) -->
+  <div class="main-wrapper">
+    
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-title" id="headerTitle">Beranda</div>
+        <div class="header-stats">
+          <div class="stat-pill" title="Streak harian">
+            <span class="stat-icon">🔥</span>
+            <span id="headerStreak">0</span>
+          </div>
+          <div class="stat-pill" title="Total poin">
+            <span class="stat-icon">⭐</span>
+            <span id="headerPoints">0</span>
+          </div>
+          <button class="icon-btn" id="darkModeToggle" aria-label="Ganti tema">🌙</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+      <!-- ===== HOME PAGE ===== -->
+      <section id="page-home" class="page active">
+        <div class="hero">
+          <div class="hero-greeting">
+            <h1 id="greetingText">Halo, Pelajar! 👋</h1>
+            <p id="greetingSub">Siap membaca hari ini?</p>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-value" id="homePoints">0</div>
+              <div class="hero-stat-label">Poin</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-value" id="homeStreak">0</div>
+              <div class="hero-stat-label">Streak</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-value" id="homeRead">0</div>
+              <div class="hero-stat-label">Artikel</div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-title">🎯 Misi Hari Ini</h2>
+        <div id="misiCard" class="misi-card"></div>
+
+        <h2 class="section-title">📚 Pilih Artikel Lainnya</h2>
+        <div id="articleList" class="article-grid"></div>
+      </section>
+
+      <!-- ===== ARTICLE PAGE ===== -->
+      <section id="page-article" class="page">
+        <button class="back-btn" data-page="home">← Kembali ke Beranda</button>
+        <article class="article-full">
+          <div class="article-meta" id="articleMeta"></div>
+          <h1 id="articleTitle"></h1>
+          <div class="article-body" id="articleBody"></div>
+          <div class="article-actions">
+            <button class="btn-primary" id="btnStartQuiz">🚀 Mulai Kuis</button>
+          </div>
+        </article>
+      </section>
+
+      <!-- ===== QUIZ PAGE ===== -->
+      <section id="page-quiz" class="page">
+        <div class="quiz-container">
+          <div class="quiz-header">
+            <div class="quiz-progress">
+              <div class="quiz-progress-bar" id="quizProgressBar"></div>
+            </div>
+            <div class="quiz-counter" id="quizCounter">Soal 1 / 3</div>
+          </div>
+          <div id="quizContent"></div>
+        </div>
+      </section>
+
+      <!-- ===== LEADERBOARD PAGE ===== -->
+      <section id="page-leaderboard" class="page">
+        <h1 class="page-title">🏆 Peringkat Kelas</h1>
+        <p class="page-sub">Bersaing sehat dengan teman-temanmu!</p>
+        <div id="leaderboardList" class="leaderboard"></div>
+      </section>
+
+      <!-- ===== PROFILE PAGE ===== -->
+      <section id="page-profile" class="page">
+        <h1 class="page-title">👤 Profilmu</h1>
+        <div class="profile-card">
+          <div class="profile-avatar" id="profileAvatar">👤</div>
+          <div class="profile-name" id="profileName">Nama Kamu</div>
+          <div class="profile-class" id="profileClass">Kelas</div>
+          <button class="btn-secondary small" id="btnEditProfile">✏️ Ubah Profil</button>
+        </div>
+
+        <div class="profile-stats">
+          <div class="profile-stat-box">
+            <div class="profile-stat-value" id="profilePoints">0</div>
+            <div class="profile-stat-label">Total Poin</div>
+          </div>
+          <div class="profile-stat-box">
+            <div class="profile-stat-value" id="profileStreak">0</div>
+            <div class="profile-stat-label">Streak</div>
+          </div>
+          <div class="profile-stat-box">
+            <div class="profile-stat-value" id="profileArticles">0</div>
+            <div class="profile-stat-label">Artikel</div>
+          </div>
+        </div>
+
+        <h2 class="section-title">🎖️ Badge Kamu</h2>
+        <div class="badge-grid" id="badgeGrid"></div>
+
+        <div class="danger-zone">
+          <button class="btn-danger" id="btnReset">🗑️ Reset Semua Data</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL NAMA -->
+  <div id="modalName" class="modal">
+    <div class="modal-content">
+      <div class="modal-emoji">👋</div>
+      <h2>Selamat Datang!</h2>
+      <p class="modal-sub">Masukkan nama dan kelasmu untuk mulai belajar</p>
+      <input type="text" id="inputName" placeholder="Nama lengkap kamu" maxlength="30" />
+      <input type="text" id="inputClass" placeholder="Kelas (contoh: XI RPL 1)" maxlength="20" />
+      <button class="btn-primary full" id="btnSaveName">Mulai Belajar 🚀</button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
